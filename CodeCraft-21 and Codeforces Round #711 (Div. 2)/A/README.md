@@ -9,6 +9,7 @@ ___
 ___
 ## 풀이
 - `3의 배수는 항상 모든 digit의 합이 3의 배수가 나온다`는 점을 이용하자.
+- 위의 지식이 없어도 사실 상관없다.
 ```c++
 long long gcdSum(const long long& X) {
 	long long tmp = X;
@@ -23,14 +24,16 @@ long long gcdSum(const long long& X) {
 }
 
 int main(){
-    ...
-    if (gcdSum(X) != 1)
-			cout << X << '\n';
-		else if (gcdSum(X + 1) != 1)
-			cout << X + 1 << '\n';
-		else if (gcdSum(X + 2) != 1)
-			cout << X + 2 << '\n';	
-    ...
+	while (T--) {
+		long long X;
+
+		cin >> X;
+
+		while (gcdSum(X) == 1) {
+			X++;
+		}
+		cout << X << '\n';
+	}
 }
 ```
 - gcd는 `유클리드 호제법`을 이용하여 구하자.
